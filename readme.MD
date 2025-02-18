@@ -30,12 +30,21 @@ mvn clean compile
 ```
 
 ### Executando os Koans
+#### Executar Todos os Testes
 Para executar os testes, utilize o runner customizado. Se você configurar o plugin exec-maven-plugin no pom.xml, poderá executar:
 ```bash
 mvn exec:java -Dexec.mainClass="com.koans.framework.KoanRunner"
 ```
 
 Ou, alternativamente, execute a classe KoanRunner diretamente pela sua IDE.
+
+#### Executar um Teste Específico
+Para executar apenas um teste específico, passe o nome do método ou uma parte de sua descrição como argumento. Por exemplo, para executar testes relacionados à "testExceptionHandling", utilize:
+```bash
+mvn exec:java -Dexec.mainClass="com.koans.framework.KoanRunner" -Dexec.args="testExceptionHandling"
+```
+
+Esse comando filtra e executa apenas os testes cujo nome do método de teste contenha a string informada (a busca é case-insensitive).
 
 ### Contribuindo
 Contribuições são bem-vindas! Se você tiver ideias de novos koans ou melhorias, sinta-se à vontade para abrir um Pull Request.

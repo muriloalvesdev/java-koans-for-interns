@@ -7,10 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Runner para executar os testes Koan. Esse runner busca por métodos anotados com @Koan nas classes
- * localizadas em um pacote específico e os executa. Se um teste falhar, os demais não serão
- * executados. As saídas no console serão coloridas utilizando códigos ANSI. Além disso, exibe o
- * tempo de execução de cada teste e o tempo total de execução.
+ * KoanRunner - Uma aplicação de execução de testes interativa e profissional.
+ *
+ * <p>Este runner procura por métodos anotados com @Koan nas classes localizadas no pacote
+ * especificado, os executa e exibe os resultados com um visual aprimorado, utilizando cores ANSI e
+ * separadores. Se um teste falhar, a execução é interrompida e um resumo final é exibido.
+ *
+ * <p>Opcionalmente, você pode passar o nome de um método ou uma descrição como argumento para
+ * executar somente aquele teste. Exemplo: mvn exec:java
+ * -Dexec.mainClass="com.koans.framework.KoanRunner" -Dexec.args="testexceptionHandling" (a busca é
+ * case-insensitive)
  */
 public class KoanRunner {
 
@@ -19,26 +25,43 @@ public class KoanRunner {
   private static final String ANSI_GREEN = "\u001B[32m";
   private static final String ANSI_YELLOW = "\u001B[33m";
   private static final String ANSI_CYAN = "\u001B[36m";
+  private static final String ANSI_BOLD = "\u001B[1m";
 
   /**
    * Método principal para executar os testes Koan.
    *
-   * @param args argumentos da linha de comando.
+   * @param args argumentos da linha de comando. Se um argumento for passado, ele é interpretado
+   *     como o nome ou descrição do método a ser executado.
    */
   public static void main(String[] args) {
+    clearScreen();
+    printHeader();
+
+    String target = args.length > 0 ? args[0].trim() : null;
+    if (target != null && !target.isEmpty()) {
+      System.out.println(
+          ANSI_BOLD
+              + ANSI_YELLOW
+              + "Modo individual: executando somente os testes que correspondem a '"
+              + target
+              + "'"
+              + ANSI_RESET);
+    } else {
+      target = null;
+    }
+
     String testPackage = "com.koans";
     List<Class<?>> koanClasses = getKoanClasses(testPackage);
 
     if (koanClasses.isEmpty()) {
       System.out.println(
-          ANSI_RED + "Nenhuma classe de Koan encontrada no pacote: " + testPackage + ANSI_RESET);
+          ANSI_RED + "No Koan classes found in package: " + testPackage + ANSI_RESET);
       return;
     }
 
     int totalTests = 0;
     int passedTests = 0;
     boolean failureOccurred = false;
-
     long totalStartTime = System.nanoTime();
 
     outer:
@@ -48,32 +71,29 @@ public class KoanRunner {
         Method[] methods = clazz.getDeclaredMethods();
         for (Method method : methods) {
           if (method.isAnnotationPresent(Koan.class)) {
+            String methodName = method.getName();
+            String methodDesc = method.getAnnotation(Koan.class).value();
+            if (target != null
+                && !(methodName.equalsIgnoreCase(target)
+                    || (!methodDesc.isEmpty() && methodDesc.equalsIgnoreCase(target)))) {
+              continue;
+            }
             totalTests++;
-            Koan annotation = method.getAnnotation(Koan.class);
-            String description = annotation.value();
-            System.out.println(
-                ANSI_CYAN
-                    + "Executando: "
-                    + (description.isEmpty() ? method.getName() : description)
-                    + ANSI_RESET);
+            String testTitle =
+                (methodDesc == null || methodDesc.isEmpty()) ? methodName : methodDesc;
+            printTestHeader(testTitle);
 
             long testStartTime = System.nanoTime();
             try {
               method.invoke(instance);
               long testEndTime = System.nanoTime();
-              long testDuration = (testEndTime - testStartTime) / 1_000_000; // em milissegundos
-              System.out.println(ANSI_GREEN + ">> SUCESSO!!" + ANSI_RESET);
-              System.out.println(
-                  ANSI_YELLOW + "Tempo de execução: " + testDuration + " ms" + ANSI_RESET);
-              System.out.println(
-                  "________________________________________________________________");
+              long testDuration = (testEndTime - testStartTime) / 1_000_000;
+              printSuccess(testDuration);
               passedTests++;
             } catch (Exception e) {
               long testEndTime = System.nanoTime();
               long testDuration = (testEndTime - testStartTime) / 1_000_000;
-              System.out.println(ANSI_RED + ">> Falhou! Motivo: " + e.getCause() + ANSI_RESET);
-              System.out.println(
-                  ANSI_YELLOW + "Tempo de execução: " + testDuration + " ms" + ANSI_RESET + "\n");
+              printFailure(e.getCause(), testDuration);
               failureOccurred = true;
               break outer;
             }
@@ -82,7 +102,7 @@ public class KoanRunner {
       } catch (Exception e) {
         System.out.println(
             ANSI_RED
-                + "Erro ao instanciar a classe "
+                + "Error instantiating class "
                 + clazz.getName()
                 + ": "
                 + e.getMessage()
@@ -94,24 +114,84 @@ public class KoanRunner {
 
     long totalEndTime = System.nanoTime();
     long totalDuration = (totalEndTime - totalStartTime) / 1_000_000;
-
-    System.out.println(ANSI_YELLOW + "Total de testes executados: " + totalTests + ANSI_RESET);
-    System.out.println(ANSI_YELLOW + "Testes aprovados: " + passedTests + ANSI_RESET);
-    System.out.println(ANSI_YELLOW + "Testes falhados: " + (totalTests - passedTests) + ANSI_RESET);
-    System.out.println(
-        ANSI_YELLOW + "Tempo total de execução: " + totalDuration + " ms" + ANSI_RESET);
+    printSummary(totalTests, passedTests, totalDuration);
 
     if (failureOccurred) {
-      System.out.println(
-          ANSI_RED + "\nInterrompendo a execução devido a uma falha em um teste." + ANSI_RESET);
+      System.out.println(ANSI_RED + "\nExecution halted due to a test failure." + ANSI_RESET);
     }
+  }
+
+  /** Limpa a tela do console. */
+  private static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+  }
+
+  /** Imprime o cabeçalho principal com ASCII art. */
+  private static void printHeader() {
+    System.out.println(ANSI_BOLD + ANSI_CYAN);
+    System.out.println("==================================================");
+    System.out.println("           JAVA KOANS FOR INTERNS");
+    System.out.println("==================================================");
+    System.out.println(ANSI_RESET);
+  }
+
+  /**
+   * Imprime o cabeçalho de um teste.
+   *
+   * @param title Título ou descrição do teste.
+   */
+  private static void printTestHeader(String title) {
+    System.out.println(ANSI_CYAN + ANSI_BOLD + "\n>> Executing: " + title + ANSI_RESET);
+  }
+
+  /**
+   * Imprime uma mensagem de sucesso com o tempo de execução.
+   *
+   * @param duration Tempo de execução em milissegundos.
+   */
+  private static void printSuccess(long duration) {
+    System.out.println(ANSI_GREEN + ">> SUCCESS!" + ANSI_RESET);
+    System.out.println(ANSI_YELLOW + "   Execution time: " + duration + " ms" + ANSI_RESET);
+    System.out.println("--------------------------------------------------");
+  }
+
+  /**
+   * Imprime uma mensagem de falha com o motivo e o tempo de execução.
+   *
+   * @param cause Causa da falha.
+   * @param duration Tempo de execução em milissegundos.
+   */
+  private static void printFailure(Throwable cause, long duration) {
+    System.out.println(ANSI_RED + ">> FAILURE! Reason: " + cause + ANSI_RESET);
+    System.out.println(ANSI_YELLOW + "   Execution time: " + duration + " ms" + ANSI_RESET);
+    System.out.println("--------------------------------------------------");
+  }
+
+  /**
+   * Imprime um resumo final da execução dos testes.
+   *
+   * @param total Total de testes executados.
+   * @param passed Total de testes aprovados.
+   * @param totalDuration Tempo total de execução em milissegundos.
+   */
+  private static void printSummary(int total, int passed, long totalDuration) {
+    System.out.println(ANSI_BOLD + ANSI_YELLOW);
+    System.out.println("\n==================================================");
+    System.out.println("               TEST SUMMARY");
+    System.out.println("==================================================");
+    System.out.println("Total tests executed: " + total);
+    System.out.println("Tests passed:         " + passed);
+    System.out.println("Tests failed:         " + (total - passed));
+    System.out.println("Total execution time: " + totalDuration + " ms");
+    System.out.println("==================================================" + ANSI_RESET);
   }
 
   /**
    * Procura por classes no pacote especificado que contenham métodos anotados com @Koan.
    *
-   * @param packageName o nome do pacote a ser escaneado.
-   * @return uma lista de classes que possuem testes Koan.
+   * @param packageName Nome do pacote a ser escaneado.
+   * @return Lista de classes que possuem testes Koan.
    */
   private static List<Class<?>> getKoanClasses(String packageName) {
     List<Class<?>> classes = new ArrayList<>();
@@ -141,7 +221,7 @@ public class KoanRunner {
             }
           }
         } catch (ClassNotFoundException e) {
-          System.out.println(ANSI_RED + "Classe não encontrada: " + className + ANSI_RESET);
+          System.out.println(ANSI_RED + "Class not found: " + className + ANSI_RESET);
         }
       }
     }
