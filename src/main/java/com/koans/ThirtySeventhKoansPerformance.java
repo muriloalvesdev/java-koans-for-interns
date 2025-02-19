@@ -20,6 +20,6 @@ public class ThirtySeventhKoansPerformance {
     long endTime = System.nanoTime();
     long durationMs = (endTime - startTime) / 1_000_000;
     Assert.isTrue(
-        durationMs < 1000, "O cálculo levou " + durationMs + " ms, que excede o limite esperado");
+        durationMs > 1000, "O cálculo levou " + durationMs + " ms, que excede o limite esperado");
   }
 }

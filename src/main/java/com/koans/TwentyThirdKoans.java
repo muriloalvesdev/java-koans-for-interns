@@ -16,7 +16,7 @@ public class TwentyThirdKoans {
       Object instance = clazz.getDeclaredConstructor().newInstance();
       Method method = clazz.getDeclaredMethod("sayHello", String.class);
       String result = (String) method.invoke(instance, "Intern");
-      Assert.equals("Hello, Intern!", result);
+      Assert.equals("Hello Intern!", result);
     } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }

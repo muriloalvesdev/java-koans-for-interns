@@ -34,6 +34,6 @@ public class TwentyFirstKoans {
     File file = new File(fileName);
     file.delete();
 
-    Assert.equals(contentToWrite, contentRead);
+    Assert.equals(contentToWrite.getBytes(), contentRead);
   }
 }

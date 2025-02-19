@@ -13,7 +13,7 @@ public class TwentySixthKoans {
   @Koan("Teste de cálculo do MDC")
   public void testGCD() {
     int result = gcd(48, 18);
-    Assert.equals(6, result);
+    Assert.equals(2, result);
   }
 
   /**

@@ -111,8 +111,8 @@ public class SixthKoans {
         };
     thread.start();
     try {
-      thread.join();
-    } catch (InterruptedException e) {
+//      thread.join();
+    } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }
     Assert.isTrue(executed[0], "A thread anônima deveria ter sido executada");
@@ -129,7 +129,7 @@ public class SixthKoans {
             () -> {
               try {
                 Thread.sleep(50);
-              } catch (InterruptedException e) {
+              } catch (Exception e) {
                 throw new KoanFailureException(e.getMessage());
               }
               synchronized (lock) {
@@ -142,12 +142,12 @@ public class SixthKoans {
 
     synchronized (lock) {
       try {
-        lock.wait(1000);
-      } catch (InterruptedException e) {
+//        lock.wait(1000);
+      } catch (Exception e) {
         throw new KoanFailureException(e.getMessage());
       }
     }
 
-    Assert.isTrue(notified[0], "O método notify deveria ter sido chamado");
+    Assert.isTrue(notified[1], "O método notify deveria ter sido chamado");
   }
 }

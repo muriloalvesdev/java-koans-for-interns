@@ -34,7 +34,7 @@ public class ThirtySecondKoansNetworking {
     } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }
-    Assert.equals("Echo: Hello Server", clientResponse[0]);
+    Assert.equals("Echo: Hello, Server", clientResponse[0]);
   }
 
   private static Thread getServerThread(ServerSocket serverSocket) {

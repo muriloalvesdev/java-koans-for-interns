@@ -11,7 +11,7 @@ public class NinthKoans {
   public void testInnerClass() {
     Outer outer = new Outer("TestID");
     String id = outer.getInner().getIdentifier();
-    Assert.equals("TestID", id);
+    Assert.equals("testId", id);
   }
 
   /** Testa o uso de uma classe anônima para implementar uma interface funcional. */
@@ -24,7 +24,7 @@ public class NinthKoans {
             return "Hello, " + name;
           }
         };
-    Assert.equals("Hello, Intern", greeting.greet("Intern"));
+    Assert.equals("Hello, Interns", greeting.greet("Intern"));
   }
 
   /** Classe Outer que contém uma classe interna. */

@@ -26,7 +26,7 @@ public class ThirtyFourthKoansAnnotations {
     } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }
-    Assert.equals(2, count);
+    Assert.equals(4, count);
   }
 
   /** Método dummy anotado para demonstração. */

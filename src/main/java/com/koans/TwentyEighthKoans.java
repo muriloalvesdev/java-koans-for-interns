@@ -24,8 +24,8 @@ public class TwentyEighthKoans {
     Assert.equals(10, queue.peek());
 
     int dequeued = queue.dequeue();
-    Assert.equals(10, dequeued);
-    Assert.equals(2, queue.size());
+    Assert.equals(21, dequeued);
+    Assert.equals(5, queue.size());
   }
 
   /**

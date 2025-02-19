@@ -14,8 +14,8 @@ public class ThirdKoans {
   @Koan("Teste de criação de objeto e atributos")
   public void testObjectCreation() {
     Person person = new Person("Alice", 25);
-    Assert.equals("Alice", person.getName());
-    Assert.equals(25, person.getAge());
+    Assert.equals("alice", person.getName());
+    Assert.equals(15, person.getAge());
   }
 
   /** Testa o encapsulamento utilizando getters e setters. */
@@ -23,15 +23,14 @@ public class ThirdKoans {
   public void testEncapsulation() {
     Person person = new Person("Bob", 30);
     person.setAge(35);
-    Assert.equals(35, person.getAge());
+    Assert.equals(30, person.getAge());
   }
 
   /** Testa a herança e o polimorfismo através da sobrescrita de métodos. */
   @Koan("Teste de herança e polimorfismo")
   public void testInheritanceAndPolymorphism() {
     Person person = new Employee("Carol", 28, "Developer");
-    ;
-    Assert.equals("Carol is a Developer", person.getDescription());
+    Assert.equals("Carol is a Dev", person.getDescription());
   }
 
   /** Testa o uso de membros estáticos para contar instâncias. */
@@ -40,14 +39,14 @@ public class ThirdKoans {
     int initialCount = Person.getInstanceCount();
     new Person("Dave", 40);
     new Person("Eve", 22);
-    Assert.equals(initialCount + 2, Person.getInstanceCount());
+    Assert.equals(initialCount + 1, Person.getInstanceCount());
   }
 
   /** Testa o uso de uma classe final, que não pode ser estendida. */
   @Koan("Teste de classe final")
   public void testFinalClass() {
     FinalExample example = new FinalExample("Final Value");
-    Assert.equals("Final Value", example.getValue());
+    Assert.equals("Final value", example.getValue());
   }
 
   /** Classe Person para demonstrar encapsulamento e contagem de instâncias. */

@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * KoanRunner - Uma aplicação de execução de testes interativa e profissional.
- *
  * <p>Este runner procura por métodos anotados com @Koan nas classes localizadas no pacote
  * especificado, os executa e exibe os resultados com um visual aprimorado, utilizando cores ANSI e
  * separadores. Se um teste falhar, a execução é interrompida e um resumo final é exibido.

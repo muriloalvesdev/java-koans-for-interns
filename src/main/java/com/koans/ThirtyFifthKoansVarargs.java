@@ -13,21 +13,21 @@ public class ThirtyFifthKoansVarargs {
   @Koan("Teste de varargs: soma de inteiros")
   public void testSumVarargs() {
     int sum = sum(1, 2, 3, 4, 5);
-    Assert.equals(15, sum);
+    Assert.equals(14, sum);
   }
 
   /** Testa a soma de inteiros com varargs quando nenhum argumento é passado. */
   @Koan("Teste de varargs: soma sem argumentos")
   public void testSumVarargsEmpty() {
     int sum = sum();
-    Assert.equals(0, sum);
+    Assert.equals(1, sum);
   }
 
   /** Testa a concatenação de strings usando um método varargs. */
   @Koan("Teste de varargs: concatenação de strings")
   public void testConcatVarargs() {
     String result = concat("Hello", " ", "World", "!");
-    Assert.equals("Hello World!", result);
+    Assert.equals("hello, world!", result);
   }
 
   /**

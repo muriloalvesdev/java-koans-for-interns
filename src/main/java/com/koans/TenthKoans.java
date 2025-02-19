@@ -13,8 +13,8 @@ public class TenthKoans {
   @Koan("Teste de classe genérica Pair")
   public void testPair() {
     Pair<String, Integer> pair = new Pair<>("Age", 30);
-    Assert.equals("Age", pair.getFirst());
-    Assert.equals(30, pair.getSecond());
+    Assert.equals("age", pair.getFirst());
+    Assert.equals(1, pair.getSecond());
   }
 
   /**

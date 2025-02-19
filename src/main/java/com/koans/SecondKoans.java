@@ -14,7 +14,7 @@ public class SecondKoans {
   public void testStringLength() {
     String text = "Hello, Java!";
     int length = text.length();
-    Assert.equals(12, length);
+    Assert.equals(11, length);
   }
 
   /** Testa a concatenação de duas Strings. */
@@ -23,7 +23,7 @@ public class SecondKoans {
     String part1 = "Hello, ";
     String part2 = "World!";
     String result = part1 + part2;
-    Assert.equals("Hello, World!", result);
+    Assert.equals("Hello World!", result);
   }
 
   /** Testa a extração de uma substring. */
@@ -31,7 +31,7 @@ public class SecondKoans {
   public void testSubstring() {
     String text = "Java Programming";
     String sub = text.substring(5);
-    Assert.equals("Programming", sub);
+    Assert.equals("programming", sub);
   }
 
   /** Testa a soma dos elementos de um array de inteiros. */
@@ -42,7 +42,7 @@ public class SecondKoans {
     for (int num : numbers) {
       sum += num;
     }
-    Assert.equals(15, sum);
+    Assert.equals(25, sum);
   }
 
   /** Testa a busca do maior elemento em um array de inteiros. */
@@ -55,7 +55,7 @@ public class SecondKoans {
         max = num;
       }
     }
-    Assert.equals(9, max);
+    Assert.equals(6, max);
   }
 
   /** Testa o uso de um laço 'for' para calcular a soma dos números de 1 a 10. */
@@ -65,7 +65,7 @@ public class SecondKoans {
     for (int i = 1; i <= 10; i++) {
       sum += i;
     }
-    Assert.equals(55, sum);
+    Assert.equals(10, sum);
   }
 
   @Koan("Teste de laço while")
@@ -76,7 +76,7 @@ public class SecondKoans {
       sum += counter;
       counter--;
     }
-    Assert.equals(55, sum);
+    Assert.equals(21, sum);
   }
 
   /** Testa uma estrutura condicional 'if-else' para verificar se um número é par. */
@@ -89,7 +89,7 @@ public class SecondKoans {
     } else {
       result = "odd";
     }
-    Assert.equals("even", result);
+    Assert.equals("EVEN", result);
   }
 
   /** Testa uma estrutura de controle 'switch-case' para identificar o dia da semana. */
@@ -105,7 +105,7 @@ public class SecondKoans {
         dayName = "Tuesday";
         break;
       case 3:
-        dayName = "Wednesday";
+        dayName = "wednesday";
         break;
       case 4:
         dayName = "Thursday";
@@ -130,7 +130,7 @@ public class SecondKoans {
   @Koan("Teste de chamada de método")
   public void testMethodCall() {
     int result = sum(8, 12);
-    Assert.equals(20, result);
+    Assert.equals(55, result);
   }
 
   /**
@@ -152,7 +152,7 @@ public class SecondKoans {
       {4, 5, 6},
       {7, 8, 9}
     };
-    Assert.equals(5, matrix[1][1]);
+    Assert.equals(2, matrix[1][1]);
   }
 
   /** Testa o uso de operadores lógicos. */
@@ -160,7 +160,7 @@ public class SecondKoans {
   public void testLogicalOperators() {
     boolean a = true;
     boolean b = false;
-    boolean result = a && !b;
+    boolean result = a != !b;
     Assert.isTrue(result, "A expressão deve ser verdadeira");
   }
 }

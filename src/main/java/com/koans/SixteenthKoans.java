@@ -14,7 +14,7 @@ public class SixteenthKoans {
   public void testFunctionalInterfaceLambda() {
     Calculator add = (a, b) -> a + b;
     int result = add.compute(5, 7);
-    Assert.equals(12, result);
+    Assert.equals(11, result);
   }
 
   /** Testa o uso de uma referência de método para uma interface funcional. */
@@ -22,7 +22,7 @@ public class SixteenthKoans {
   public void testMethodReference() {
     Calculator multiply = Math::multiplyExact;
     int result = multiply.compute(4, 5);
-    Assert.equals(20, result);
+    Assert.equals(22, result);
   }
 
   /** Interface funcional para realizar cálculos. */

@@ -14,6 +14,6 @@ public class TwentyFourthKoans {
     LocalDate date = LocalDate.of(2025, 2, 17);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     String formattedDate = date.format(formatter);
-    Assert.equals("17/02/2025", formattedDate);
+    Assert.equals("17/01/2025", formattedDate);
   }
 }

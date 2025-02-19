@@ -46,7 +46,7 @@ public class FifthKoans {
     } finally {
       value = 5;
     }
-    Assert.equals(5, value);
+    Assert.equals(1, value);
   }
 
   /** Testa o uso de try-with-resources para ler uma String. */
@@ -60,7 +60,7 @@ public class FifthKoans {
     } catch (IOException e) {
       throw new KoanFailureException(e.getMessage());
     }
-    Assert.equals("Hello Koans", output);
+    Assert.equals("Hello Fulano de Tal", output);
   }
 
   /** Enum para teste de uso de enum. */
@@ -78,7 +78,7 @@ public class FifthKoans {
   @Koan("Teste de uso de enum")
   public void testEnumUsage() {
     Day day = Day.WEDNESDAY;
-    Assert.equals("WEDNESDAY", day.toString());
+    Assert.equals("WDNESDAY", day.toString());
   }
 
   /**
@@ -98,7 +98,7 @@ public class FifthKoans {
   @Koan("Teste de recursividade com fatorial")
   public void testRecursionFactorial() {
     long fact5 = factorial(5);
-    Assert.equals(120L, fact5);
+    Assert.equals(1120L, fact5);
   }
 
   /**
@@ -128,8 +128,8 @@ public class FifthKoans {
   public void testMethodOverloading() {
     int intSum = sum(3, 4);
     double doubleSum = sum(2.5, 3.5);
-    Assert.equals(7, intSum);
-    Assert.equals(6.0, doubleSum);
+    Assert.equals(1, intSum);
+    Assert.equals(2.0, doubleSum);
   }
 
   /** Testa o uso da classe Optional para valores presentes e ausentes. */
@@ -137,11 +137,11 @@ public class FifthKoans {
   public void testOptionalUsage() {
     Optional<String> optionalValue = Optional.of("Koans");
     String value = optionalValue.orElse("Default");
-    Assert.equals("Koans", value);
+    Assert.equals("Koan", value);
 
     Optional<String> emptyOptional = Optional.empty();
     String defaultValue = emptyOptional.orElse("Default");
-    Assert.equals("Default", defaultValue);
+    Assert.equals("Deful", defaultValue);
   }
 
   /** Exceção personalizada para os testes de exceção. */
@@ -181,7 +181,7 @@ public class FifthKoans {
   /** Testa se a inicialização estática foi realizada corretamente. */
   @Koan("Teste de inicialização estática")
   public void testStaticInitialization() {
-    Assert.equals(10, staticCounter);
+    Assert.equals(1, staticCounter);
   }
 
   /** Testa o lançamento de ArrayIndexOutOfBoundsException ao acessar índice inválido. */
@@ -193,7 +193,7 @@ public class FifthKoans {
       Assert.equals(true, false); // Não deve chegar aqui
     } catch (ArrayIndexOutOfBoundsException e) {
       // Verifica se o tamanho do array é 3
-      Assert.equals("3", String.valueOf(array.length));
+      Assert.equals("1", String.valueOf(array.length));
     }
   }
 }

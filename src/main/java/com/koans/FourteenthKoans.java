@@ -13,7 +13,7 @@ public class FourteenthKoans {
   @Koan("Teste de sequência de Fibonacci")
   public void testFibonacci() {
     int fib10 = fibonacci(10);
-    Assert.equals(55, fib10);
+    Assert.equals(2, fib10);
   }
 
   /**

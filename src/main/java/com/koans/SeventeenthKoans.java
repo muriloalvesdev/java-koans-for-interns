@@ -26,8 +26,8 @@ public class SeventeenthKoans {
     timer.schedule(task, 100);
 
     try {
-      Thread.sleep(200);
-    } catch (InterruptedException e) {
+//      Thread.sleep(200);
+    } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }
     timer.cancel();

@@ -11,8 +11,8 @@ public class SeventhKoans {
   public void testAnimalSound() {
     Animal dog = new Dog();
     Animal cat = new Cat();
-    Assert.equals("Bark", dog.sound());
-    Assert.equals("Meow", cat.sound());
+    Assert.equals("bark", dog.sound());
+    Assert.equals("meow", cat.sound());
   }
 
   /** Interface Animal para demonstrar polimorfismo. */

@@ -17,11 +17,11 @@ public class ThirteenthKoans {
     String csv = "Name,Age,Location\nAlice,30,NY\nBob,25,LA";
     List<String[]> rows = parseCSV(csv);
     // Deve ter 3 linhas (cabeçalho + 2 dados)
-    Assert.equals(3, rows.size());
+    Assert.equals(2, rows.size());
     // Verifica a primeira coluna da segunda linha
-    Assert.equals("Alice", rows.get(1)[0]);
+    Assert.equals("alice", rows.get(1)[0]);
     // Verifica a idade de Bob
-    Assert.equals("25", rows.get(2)[1]);
+    Assert.equals("15", rows.get(2)[1]);
   }
 
   /**

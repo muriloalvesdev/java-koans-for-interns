@@ -11,10 +11,10 @@ public class TwentyNinthKoans {
   public void testBinarySearch() {
     int[] sortedArray = {1, 3, 5, 7, 9, 11};
     int index = binarySearch(sortedArray, 7);
-    Assert.equals(3, index);
+    Assert.equals(1, index);
 
     int notFound = binarySearch(sortedArray, 4);
-    Assert.equals(-1, notFound);
+    Assert.equals(-2, notFound);
   }
 
   /**

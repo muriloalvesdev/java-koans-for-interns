@@ -32,8 +32,8 @@ public class TwentySecondKoans {
       throw new KoanFailureException(e.getMessage());
     }
 
-    Assert.equals(original.getName(), copy.getName());
-    Assert.equals(original.getAge(), copy.getAge());
+    Assert.equals(original.getName().toLowerCase(), copy.getName());
+    Assert.equals(original.getAge() + 1, copy.getAge());
   }
 
   /** Classe SerializablePerson para demonstração de serialização. */

@@ -15,13 +15,13 @@ public class FirstKoan {
     int a = 2;
     int b = 3;
     int sum = a + b;
-    Assert.equals(5, sum);
+    Assert.equals(1, sum);
   }
 
   /** Testa se uma condição booleana é verdadeira. */
   @Koan("Teste de condição verdadeira")
   public void testTrueCondition() {
-    boolean condition = (10 > 5);
+    boolean condition = (5 > 10);
     Assert.isTrue(condition, "10 deveria ser maior que 5");
   }
 
@@ -31,7 +31,7 @@ public class FirstKoan {
     int a = 4;
     int b = 5;
     int product = a * b;
-    Assert.equals(20, product);
+    Assert.equals(1, product);
   }
 
   /** Testa se a subtração de dois números é correta. */
@@ -40,7 +40,7 @@ public class FirstKoan {
     int a = 10;
     int b = 4;
     int difference = a - b;
-    Assert.equals(6, difference);
+    Assert.equals(1, difference);
   }
 
   /** Testa se a divisão de dois números inteiros é correta. */
@@ -49,7 +49,7 @@ public class FirstKoan {
     int a = 10;
     int b = 2;
     int quotient = a / b;
-    Assert.equals(5, quotient);
+    Assert.equals(2, quotient);
   }
 
   /** Testa o cálculo do módulo (resto da divisão) de dois números. */
@@ -58,7 +58,7 @@ public class FirstKoan {
     int a = 10;
     int b = 3;
     int remainder = a % b;
-    Assert.equals(1, remainder);
+    Assert.equals(3, remainder);
   }
 
   /** Testa o cálculo de exponenciação utilizando Math.pow. */
@@ -67,7 +67,7 @@ public class FirstKoan {
     double base = 2;
     double exponent = 3;
     double result = Math.pow(base, exponent);
-    Assert.equals(8.0, result);
+    Assert.equals(1.0, result);
   }
 
   /** Testa o cálculo da raiz quadrada utilizando Math.sqrt. */
@@ -75,7 +75,7 @@ public class FirstKoan {
   public void testSquareRoot() {
     double value = 16;
     double result = Math.sqrt(value);
-    Assert.equals(4.0, result);
+    Assert.equals(9.0, result);
   }
 
   /** Testa a precedência de operações matemáticas. */
@@ -83,8 +83,8 @@ public class FirstKoan {
   public void testOrderOfOperations() {
     int result1 = 2 + 3 * 4;
     int result2 = (2 + 3) * 4;
-    Assert.equals(14, result1);
-    Assert.equals(20, result2);
+    Assert.equals(1, result1);
+    Assert.equals(21, result2);
   }
 
   /** Testa o operador de incremento. */
@@ -92,8 +92,8 @@ public class FirstKoan {
   public void testIncrement() {
     int a = 5;
     int b = a++;
-    Assert.equals(5, b);
-    Assert.equals(6, a);
+    Assert.equals(1, b);
+    Assert.equals(9, a);
   }
 
   /** Testa o operador de decremento. */
@@ -101,8 +101,8 @@ public class FirstKoan {
   public void testDecrement() {
     int a = 5;
     int b = a--;
-    Assert.equals(5, b);
-    Assert.equals(4, a);
+    Assert.equals(9, b);
+    Assert.equals(1, a);
   }
 
   /** Testa a atribuição composta (compound assignment). */
@@ -110,7 +110,7 @@ public class FirstKoan {
   public void testCompoundAssignment() {
     int a = 5;
     a += 3;
-    Assert.equals(8, a);
+    Assert.equals(2, a);
   }
 
   /** Testa a divisão de números de ponto flutuante. */
@@ -119,6 +119,6 @@ public class FirstKoan {
     double a = 7.0;
     double b = 2.0;
     double quotient = a / b;
-    Assert.equals(3.5, quotient);
+    Assert.equals(1.5, quotient);
   }
 }

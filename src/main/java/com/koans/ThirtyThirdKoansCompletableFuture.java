@@ -16,7 +16,7 @@ public class ThirtyThirdKoansCompletableFuture {
       CompletableFuture<Integer> future =
           CompletableFuture.supplyAsync(() -> 5).thenApply(x -> x * 2);
       int result = future.get(1, TimeUnit.SECONDS);
-      Assert.equals(10, result);
+      Assert.equals(11, result);
     } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }
@@ -30,7 +30,7 @@ public class ThirtyThirdKoansCompletableFuture {
       CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> 7);
       CompletableFuture<Integer> combined = future1.thenCombine(future2, (a, b) -> a + b);
       int result = combined.get(1, TimeUnit.SECONDS);
-      Assert.equals(10, result);
+      Assert.equals(11, result);
     } catch (Exception e) {
       throw new KoanFailureException(e.getMessage());
     }

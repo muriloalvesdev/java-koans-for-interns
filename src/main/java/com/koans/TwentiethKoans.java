@@ -24,8 +24,8 @@ public class TwentiethKoans {
 
     subject.setState("Updated");
 
-    Assert.equals("Updated", observer1.getState());
-    Assert.equals("Updated", observer2.getState());
+    Assert.equals("updated", observer1.getState());
+    Assert.equals("updated", observer2.getState());
   }
 
   /** Interface Observer para receber atualizações. */

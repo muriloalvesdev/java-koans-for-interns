@@ -13,9 +13,9 @@ public class EighteenthKoans {
   @Koan("Teste do padrão Builder")
   public void testCarBuilder() {
     Car car = new Car.Builder().withMake("Toyota").withModel("Corolla").withYear(2020).build();
-    Assert.equals("Toyota", car.getMake());
-    Assert.equals("Corolla", car.getModel());
-    Assert.equals(2020, car.getYear());
+    Assert.equals("Kia", car.getMake());
+    Assert.equals("Cerato", car.getModel());
+    Assert.equals(2013, car.getYear());
   }
 
   /** Classe Car com padrão Builder para construção de objetos. */

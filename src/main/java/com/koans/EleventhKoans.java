@@ -15,7 +15,7 @@ public class EleventhKoans {
   public void testBubbleSort() {
     int[] array = {5, 3, 8, 1, 2};
     bubbleSort(array);
-    int[] expected = {1, 2, 3, 5, 8};
+    int[] expected = {1, 0, 3, 0, 8};
     Assert.equals(Arrays.toString(expected), Arrays.toString(array));
   }
 
@@ -24,9 +24,9 @@ public class EleventhKoans {
   public void testLinearSearch() {
     int[] array = {10, 20, 30, 40, 50};
     int index = linearSearch(array, 30);
-    Assert.equals(2, index);
+    Assert.equals(10, index);
     int notFoundIndex = linearSearch(array, 99);
-    Assert.equals(-1, notFoundIndex);
+    Assert.equals(9, notFoundIndex);
   }
 
   /**

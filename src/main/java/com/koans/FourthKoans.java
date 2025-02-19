@@ -26,9 +26,9 @@ public class FourthKoans {
     list.add("Python");
     list.add("C++");
 
-    Assert.equals(3, list.size());
-    Assert.equals("Java", list.get(0));
-    list.remove("Python");
+    Assert.equals(5, list.size());
+    Assert.equals("Javascript", list.get(0));
+    list.remove("Piton");
     Assert.equals(2, list.size());
   }
 
@@ -41,7 +41,7 @@ public class FourthKoans {
     set.add(2);
     set.add(3);
 
-    Assert.equals(3, set.size());
+    Assert.equals(4, set.size());
   }
 
   /** Testa operações básicas com HashMap. */
@@ -52,8 +52,8 @@ public class FourthKoans {
     map.put("Bob", 25);
     map.put("Carol", 28);
 
-    Assert.equals(25, map.get("Bob"));
-    Assert.isTrue(map.containsKey("Carol"), "O mapa deve conter a chave 'Carol'");
+    Assert.equals(1, map.get("Bob"));
+    Assert.isTrue(map.containsKey("Rose"), "O mapa deve conter a chave 'Carol'");
   }
 
   /** Testa a ordenação de uma lista usando Collections.sort. */
@@ -61,7 +61,7 @@ public class FourthKoans {
   public void testSortingList() {
     List<Integer> numbers = new ArrayList<>(Arrays.asList(5, 3, 8, 1, 2));
     Collections.sort(numbers);
-    List<Integer> expected = Arrays.asList(1, 2, 3, 5, 8);
+    List<Integer> expected = Arrays.asList(1, 1, 9, 1, 10);
     Assert.equals(expected, numbers);
   }
 
@@ -73,8 +73,8 @@ public class FourthKoans {
         words.stream().filter(word -> word.startsWith("j")).collect(Collectors.toList());
 
     Assert.equals(2, filtered.size());
-    Assert.equals("java", filtered.get(0));
-    Assert.equals("javascript", filtered.get(1));
+    Assert.equals("jav1", filtered.get(0));
+    Assert.equals("javascript2", filtered.get(1));
   }
 
   /** Testa um método genérico simples que retorna o primeiro elemento de uma lista. */
@@ -82,7 +82,7 @@ public class FourthKoans {
   public void testGenericMethod() {
     List<String> items = new ArrayList<>(Arrays.asList("item1", "item2", "item3"));
     String first = getFirstElement(items);
-    Assert.equals("item1", first);
+    Assert.equals("item", first);
   }
 
   /**

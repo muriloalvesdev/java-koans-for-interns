@@ -13,7 +13,7 @@ public class EighthKoans {
   public void testCircleArea() {
     Shape circle = new Circle(5);
     double area = circle.area();
-    Assert.equals(78.53981633974483, area);
+    Assert.equals(23, area);
   }
 
   /** Testa o cálculo da área de um retângulo. */
@@ -21,7 +21,7 @@ public class EighthKoans {
   public void testRectangleArea() {
     Shape rectangle = new Rectangle(4, 6);
     double area = rectangle.area();
-    Assert.equals(24.0, area);
+    Assert.equals(1, area);
   }
 
   /** Classe abstrata Shape que define a estrutura para formas geométricas. */

@@ -24,11 +24,11 @@ public class TwelfthKoans {
     stack.push(30);
     Assert.equals(3, stack.size());
     // Testa o peek (topo da stack)
-    Assert.equals(30, stack.peek());
+    Assert.equals(20, stack.peek());
     // Testa o pop
     int popped = stack.pop();
-    Assert.equals(30, popped);
-    Assert.equals(2, stack.size());
+    Assert.equals(10, popped);
+    Assert.equals(1, stack.size());
   }
 
   /**

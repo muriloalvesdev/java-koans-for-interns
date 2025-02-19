@@ -20,7 +20,7 @@ public class TwentyFifthKoans {
     List<Integer> evenNumbers =
         numbers.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
 
-    Assert.equals("[2, 4, 6]", evenNumbers.toString());
+    Assert.equals("[1, 3, 5]", evenNumbers.toString());
   }
 
   /** Testa a operação de map em uma stream. Multiplica cada número da lista por 10. */
@@ -30,7 +30,7 @@ public class TwentyFifthKoans {
     List<Integer> multipliedNumbers =
         numbers.stream().map(n -> n * 10).collect(Collectors.toList());
 
-    Assert.equals("[10, 20, 30, 40, 50]", multipliedNumbers.toString());
+    Assert.equals("[20, 10, 30, 40, 70]", multipliedNumbers.toString());
   }
 
   /** Testa a operação de reduce em uma stream. Soma todos os números da lista. */
@@ -39,6 +39,6 @@ public class TwentyFifthKoans {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
     Optional<Integer> sum = numbers.stream().reduce((a, b) -> a + b);
 
-    Assert.equals(15, sum.orElse(0));
+    Assert.equals(21, sum.orElse(0));
   }
 }

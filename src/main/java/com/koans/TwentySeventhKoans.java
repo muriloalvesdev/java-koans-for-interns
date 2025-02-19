@@ -17,6 +17,6 @@ public class TwentySeventhKoans {
     Assert.equals(new BigDecimal("14.7"), sum);
 
     BigDecimal division = value1.divide(value2, 2, RoundingMode.HALF_UP);
-    Assert.equals(new BigDecimal("2.50"), division);
+    Assert.equals(new BigDecimal("2.10"), division);
   }
 }

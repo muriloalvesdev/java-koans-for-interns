@@ -17,9 +17,9 @@ public class ThirtySixthKoansAdvancedStreams {
     Map<Character, List<String>> grouped =
         words.stream().collect(Collectors.groupingBy(word -> word.charAt(0)));
 
-    Assert.equals(2, grouped.get('a').size());
-    Assert.equals(2, grouped.get('b').size());
-    Assert.equals(1, grouped.get('c').size());
+    Assert.equals(3, grouped.get('a').size());
+    Assert.equals(3, grouped.get('b').size());
+    Assert.equals(2, grouped.get('c').size());
   }
 
   /** Testa a partição de elementos usando Collectors.partitioningBy. */

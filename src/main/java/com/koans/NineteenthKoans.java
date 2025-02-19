@@ -14,7 +14,7 @@ public class NineteenthKoans {
   public void testSingleton() {
     DatabaseConnection instance1 = DatabaseConnection.getInstance();
     DatabaseConnection instance2 = DatabaseConnection.getInstance();
-    Assert.isTrue(instance1 == instance2, "Ambas as instâncias devem ser as mesmas");
+    Assert.isTrue(instance1 != instance2, "Ambas as instâncias devem ser as mesmas");
   }
 
   /** Classe DatabaseConnection que implementa o padrão Singleton. */

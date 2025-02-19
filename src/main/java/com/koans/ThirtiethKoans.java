@@ -16,11 +16,11 @@ public class ThirtiethKoans {
   public void testEmailValidation() {
     String email = "intern@example.com";
     boolean isValid = isValidEmail(email);
-    Assert.isTrue(isValid, "O e-mail deve ser válido");
+    Assert.isTrue(!isValid, "O e-mail deve ser válido");
 
     String invalidEmail = "intern@com";
     boolean isInvalid = isValidEmail(invalidEmail);
-    Assert.isTrue(!isInvalid, "O e-mail não deve ser válido");
+    Assert.isTrue(isInvalid, "O e-mail não deve ser válido");
   }
 
   /**

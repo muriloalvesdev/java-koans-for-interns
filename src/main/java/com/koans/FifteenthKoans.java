@@ -16,7 +16,7 @@ public class FifteenthKoans {
     PersonClone original = new PersonClone("John", 28);
     PersonClone clone = original.clone();
 
-    Assert.isTrue(original.equals(clone), "Os objetos devem ser iguais");
+    Assert.isTrue(original.equals(clone.age), "Os objetos devem ser iguais");
     Assert.isTrue(original != clone, "Os objetos devem ter referências diferentes");
     Assert.equals(original.hashCode(), clone.hashCode());
   }
