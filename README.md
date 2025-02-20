@@ -46,5 +46,25 @@ mvn exec:java -Dexec.mainClass="com.koans.framework.KoanRunner" -Dexec.args="tes
 
 Esse comando filtra e executa apenas os testes cujo nome do método de teste contenha a string informada (a busca é case-insensitive).
 
-### Contribuindo
+## Testando Seus Koans e Salvando sua solução!
+
+##### 1. Crie sua Branch:
+- Faça um fork ou clone desse repositório.
+- Crie uma branch com exatamente o seu nome de usuário do GitHub (por exemplo, git checkout -b seu-usuario). Se o seu usuário no GitHub for joaodasilva, então a branch precisa se chamar joaodasilva.
+
+##### 2. Resolva os Koans:
+- Abra os arquivos de teste e resolva as falhas (você vai ver alguns testes falhando de propósito).
+- Rode os testes localmente até ver tudo verdinho. Sem pressa!
+
+##### 3. Faça o Commit e Suba a Branch:
+- Quando achar que tudo está ok, `git add .` - `git commit -m "Finaliza koans"` (ou qualquer mensagem) e depois `git push origin sua-branch`
+
+#### 4. Valide no CI
+- Fique de olho no status do CI.
+- Se passar nos testes, pronto! Você tem a sua versão deste repositório, com o seu nome, atestando que chegou no final sem tropeçar nos koans!
+
+Por que fazer isso? Bom, além de ser uma forma de praticar Git, CI e expandir seu conhecimento em Java, você ainda sai com uma "prova" de que resolveu todas as missões. Pode até mandar o link pra galera no trabalho ou na faculdade! Ou só pra ver seu nome na lista de branches do repositório, rs. Enfim, a ideia é deixar tudo mais interativo e divertido. Boa sorte e divirta-se nos koans! Se aparecer qualquer dúvida, problemas esquisitos ou se você quebrar tudo sem querer, abre uma issue!
+
+##### Bora evoluir nesses testes juntos!
+
 Contribuições são bem-vindas! Se você tiver ideias de novos koans ou melhorias, sinta-se à vontade para abrir um Pull Request.
