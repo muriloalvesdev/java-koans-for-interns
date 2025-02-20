@@ -67,4 +67,12 @@ Por que fazer isso? Bom, além de ser uma forma de praticar Git, CI e expandir s
 
 ##### Bora evoluir nesses testes juntos!
 
-Contribuições são bem-vindas! Se você tiver ideias de novos koans ou melhorias, sinta-se à vontade para abrir um Pull Request.
+
+### Importante: Por Que o CI Está Quebrado?
+Você deve ter reparado que a branch `main` está com o **CI falhando**. Isso é de propósito. Os Koans têm testes que ainda não foram resolvidos, então o workflow no GitHub Actions vai continuar “vermelhinho” até que alguém os corrija.
+
+A ideia é você forkar (ou clonar), criar a sua branch e ir passando nos Koans, até que o seu próprio CI fique verdinho. É quase como um mini-desafio: ao resolver todos os Koans, a sua branch provará que está tudo no lugar, e então o CI deve executar todos os testes e validar se você conseguiu!
+
+Então não se assuste quando olhar o repositório e ver que os testes estão falhando na main: é uma forma de mostrar que esses exercícios estão aí pra serem resolvidos!
+
+#### Contribuições são bem-vindas! Se você tiver ideias de novos koans ou melhorias, sinta-se à vontade para abrir um Pull Request.
