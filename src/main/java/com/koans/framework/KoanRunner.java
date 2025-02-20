@@ -116,6 +116,7 @@ public class KoanRunner {
 
     if (failureOccurred) {
       System.out.println(ANSI_RED + "\nExecution halted due to a test failure." + ANSI_RESET);
+      System.exit(1);
     }
   }
 
